@@ -1,14 +1,22 @@
+/*
+Software Design and Quality
+Lab 1 Part 2
+17/09/2015
+Kevin O Hanlon B00068422
+Sean Clancy B00069909
+*/
+
 #include <iostream>
 
 using namespace std;
 
-// Base Class
-class shape
+class shape // Base Class
 {
 
 public:
-    //pure virtual function providing interface framework
-    virtual int getArea() = 0;
+
+    virtual int getArea() = 0; //pure virtual function providing interface framework
+
     void setWidth(int w)
     {
         width = w;
@@ -17,9 +25,14 @@ public:
     {
         height = h;
     }
+    void setRadius(int r)
+    {
+        radius = r;
+    }
 protected:
     int width;
     int height;
+    int radius;
 };
 
 class Triangle: public shape
@@ -31,13 +44,25 @@ public:
     }
 };
 
+class Circle: public shape
+{
+public:
+    int getArea()
+    {
+        return (radius*radius)*3.141592;
+    }
+};
+
 int main()
 {
     Triangle Tri;
     Tri.setWidth(5);
     Tri.setHeight(7);
-    //Print The Area of the object.
-    cout << "Total Triangle area: " << Tri.getArea() << endl;
+    cout << "Total Triangle area: " << Tri.getArea() << endl; //Print The Area of the object.
+
+    Circle Cir;
+    Cir.setRadius(10);
+    cout << "Total Circle area: " << Cir.getArea() << endl; //Print The Area of the object.
 
 
     return 0;
