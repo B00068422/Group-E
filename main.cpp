@@ -3,7 +3,7 @@ Software Design and Quality
 Lab 1 Part 2
 17/09/2015
 Kevin O Hanlon B00068422
-Sean Clancy B00069909
+Aaron Gallagher B00072852
 */
 
 #include <iostream>
@@ -29,10 +29,14 @@ public:
     {
         radius = r;
     }
+    void setLength(int l)
+    {
+        length = l;
+    }
 protected:
     int width;
     int height;
-    int radius;
+    int length;
 };
 
 class Triangle: public shape
@@ -53,6 +57,14 @@ public:
     }
 };
 
+class Rectangle: public shape
+{
+public:
+    int getArea()
+    {
+        return (length*height);
+    }
+};
 int main()
 {
     Triangle Tri;
@@ -63,6 +75,11 @@ int main()
     Circle Cir;
     Cir.setRadius(10);
     cout << "Total Circle area: " << Cir.getArea() << endl; //Print The Area of the object.
+
+    Rectangle Rec;
+    Rec.setLength(10);
+    Rec.setHeight(5);
+    cout << "Total Rectangle area: " << Rec.getArea() << endl; //Print The Area of the object.
 
 
     return 0;
