@@ -27,7 +27,7 @@ public:
     }
     void setRadius(int r)
     {
-        radius = r;
+        Radius = r;
     }
     void setLength(int l)
     {
@@ -36,6 +36,7 @@ public:
 protected:
     int width;
     int height;
+    int Radius;
     int length;
 };
 
@@ -53,7 +54,7 @@ class Circle: public shape
 public:
     int getArea()
     {
-        return (radius*radius)*3.141592;
+        return (Radius*Radius)*3.141592;
     }
 };
 
@@ -81,6 +82,7 @@ int main()
     Rec.setHeight(5);
     cout << "Total Rectangle area: " << Rec.getArea() << endl; //Print The Area of the object.
 
+    cout << "Total area of all shapes: " << Rec.getArea()+Cir.getArea()+Tri.getArea() << endl;
 
     return 0;
 }
